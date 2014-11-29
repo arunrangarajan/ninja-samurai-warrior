@@ -1,3 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 #empty 
+
+arun:
+  name: Arun Rangarajan
+  email: arangarajan@college.harvard.edu
+  password_digest: <%= User.digest('password') %>
