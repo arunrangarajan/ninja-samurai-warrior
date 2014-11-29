@@ -38,6 +38,7 @@ end
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
+	gem 'unicorn', '4.8.3'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
