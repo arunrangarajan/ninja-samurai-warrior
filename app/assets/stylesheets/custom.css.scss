@@ -118,15 +118,26 @@ footer {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input, textarea, select, #andycreamer1, .uneditable-input {
+  margin-top: 0px;
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
 }
 
+#andycreamer1 {
+  width: 100%;
+  margin-top: 5px;
+
+}
+
 input {
   height: auto !important;
+}
+
+#magic {
+
 }
 
 #error_explanation {

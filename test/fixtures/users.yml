@@ -6,3 +6,8 @@ arun:
   name: Arun Rangarajan
   email: arangarajan@college.harvard.edu
   password_digest: <%= User.digest('password') %>
+
+archer:
+  name: Sterling Archer
+  email: archer@cia.gov
+  password_digest: <%= User.digest('password') %>
