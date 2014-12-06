@@ -1,0 +1,13 @@
+<%= form_for(@expense) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :name, placeholder: "What did you buy?"%>
+  </div>
+  <div class="field">
+    <%= f.text_field :category, placeholder: "Categorize it" %>
+  </div>
+  <div class="field">
+    <%= f.number_field :value, in: 0.0..999999.99, step: 0.01, placeholder: "How much was it?" %>
+  </div>
+  <%= f.submit "Enter", class: "btn btn-primary" %>
+<% end %>

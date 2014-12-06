@@ -5,7 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create!(name:  "Example User",
+             email: "example@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar")
+
+99.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@harvard.org"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password)
+end
 
 
-user = User.new(A)
-user.create_budget(income: 12345.12)
+
+users = User.order(:created_at).take(2)
+
+50.times do
+  name = Faker::Lorem.sentence(1)
+  category= Faker::Lorem.word
+  value= Faker::Number.number(2)
+  users.each { |user| user.expenses.create!(name: name, category: category, value: value) }
+end
+
+income = 300.00
+users.each { |user| user.create_budget!(income: income) }

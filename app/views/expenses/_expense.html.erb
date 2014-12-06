@@ -1,0 +1,13 @@
+<li id="expense-<%= expense.id %>">
+  <span class="user"><%= link_to expense.user.name, expense.user %></span>
+  <span class="name">Name: <b><%= expense.name %></b></span>
+  <span class="category">Category: <b><%= expense.category %></b></span>
+  <span class="value">Amount: <b>$<%= expense.value %></b></span>
+  <span class="timestamp">
+    Uploaded <%= time_ago_in_words(expense.created_at) %> ago.
+    <% if current_user?(expense.user) %>
+      <%= link_to "delete", expense, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>

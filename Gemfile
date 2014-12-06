@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.8'
 gem 'bcrypt'
 gem 'bootstrap-sass'
+gem 'faker', '1.4.2'
+gem 'will_paginate', '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

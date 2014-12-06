@@ -6,7 +6,7 @@
     <%= render 'shared/error_messages', object: f.object %>
     <%= f.label :income %>
         <%= f.number_field :income, in: 0.0..999999.99, step: 0.01, class: 'form-control' %>
-    <%= f.submit "Sumbit", class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

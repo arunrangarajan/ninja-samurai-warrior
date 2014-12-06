@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Nocchs
+  category: Food
+  value: 3.5
+  created_at: <%= 10.minutes.ago %>
+  user: arun
+
+two:
+  name: QDoba
+  category: Food
+  value: 8.5
+  created_at: <%= 3.hours.ago %> 
+  user: arun
+
+most_recent:
+  name: MyText
+  category: MyText
+  value: 1.5
+  created_at: <%= Time.zone.now %> 
+  user: arun
