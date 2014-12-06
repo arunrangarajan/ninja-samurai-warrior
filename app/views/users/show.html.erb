@@ -1,1 +1,6 @@
 <%= @user.name %>, <%= @user.email %>
+<div class = "col-md-8">
+	<% if !@user.budget.nil?%>
+	 	<%= @user.budget.income %>
+ 	<% end %>
+</div>

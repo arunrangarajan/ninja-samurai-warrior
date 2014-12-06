@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update, :show, :destroy]
   def show
   	@user = User.find(params[:id])
+    @budget = @user.budget
   end
 
   def new
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
   	if @user.save
       log_in @user
   		flash[:success] = "Welcome to the urBudget community!"
-  		redirect_to @user
+  		redirect_to new_budget_path
 		else
 			render 'new'
 		end
