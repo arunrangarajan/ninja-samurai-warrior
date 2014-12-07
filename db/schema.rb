@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20141206181051) do
 
   create_table "budgets", force: true do |t|
     t.float    "income"
+    t.float    "remaining"
+    t.float    "used"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

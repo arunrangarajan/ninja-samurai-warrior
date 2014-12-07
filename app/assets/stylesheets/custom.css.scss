@@ -15,6 +15,33 @@ $gray-medium-light: #eaeaea;
 html {
   overflow-y: scroll;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    padding-bottom: 10px;
+}
+
+td, th {
+    border: 1px solid #98bf21;
+    padding: 3px 7px 2px 7px;
+}
+
+tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
+
+th {
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #ffffff;
+}
+
+#left h1 {
+      text-align: left;
+}
 
 body {
   padding-top: 60px;
@@ -201,3 +228,4 @@ span.picture {
     border: 0;
   }
 }
+

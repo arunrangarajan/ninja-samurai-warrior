@@ -25,11 +25,11 @@ end
 users = User.order(:created_at).take(2)
 
 50.times do
-  name = Faker::Lorem.sentence(1)
+  name = Faker::Lorem.word
   category= Faker::Lorem.word
   value= Faker::Number.number(2)
   users.each { |user| user.expenses.create!(name: name, category: category, value: value) }
 end
 
 income = 300.00
-users.each { |user| user.create_budget!(income: income) }
+users.each { |user| user.create_budget!(income: income, remaining: income, used: 0.00) }

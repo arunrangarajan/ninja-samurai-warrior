@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :show, :destroy]
   before_action :correct_user,   only: [:edit, :update, :show, :destroy]
+  before_action :user_trying_to_cheat,   only: [:edit, :update, :show, :destroy]
   def show
   	@user = User.find(params[:id])
     @budget = @user.budget
-    @expenses = @user.expenses.paginate(page: params[:page])
+    @expenses = @user.expenses
   end
 
   def new
@@ -54,6 +55,15 @@ class UsersController < ApplicationController
         redirect_to login_url
       end
     end
+
+  def user_trying_to_cheat
+      @user= User.find(params[:id])
+      unless defined? @user.budget
+        flash[:danger] = "Please enter budget before continuing."
+        redirect_to new_budget_path
+      end
+    end
+    
 
   def correct_user
       @user = User.find(params[:id])

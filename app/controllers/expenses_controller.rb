@@ -8,7 +8,8 @@ class ExpensesController < ApplicationController
 		if @expense.save
 			flash[:success] = "Expense added!"
 			redirect_to root_url
-			@budget.income = @budget.income - @expense.value
+			@budget.remaining = @budget.remaining - @expense.value
+			@budget.used = @budget.used + @expense.value
 			@budget.save 
 		else
 			@feed_items = []
@@ -17,7 +18,11 @@ class ExpensesController < ApplicationController
 	end
 
 	def destroy
+		@budget = current_user.budget
+	    @budget.used = @budget.used - @expense.value
+	    @budget.remaining = @budget.remaining + @expense.value
 	    @expense.destroy
+	    @budget.save
 	    flash[:success] = "Expense deleted"
 	    redirect_to request.referrer || root_url
 	end

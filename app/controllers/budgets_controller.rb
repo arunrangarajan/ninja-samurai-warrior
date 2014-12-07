@@ -7,6 +7,8 @@ class BudgetsController < ApplicationController
 
 	def create
 		@budget = current_user.build_budget(budget_params)
+		@budget.remaining = @budget.income
+		@budget.used = 0
 		if @budget.save
 			flash[:success] = "Your budget has been set!"
 			redirect_to current_user
@@ -22,8 +24,11 @@ class BudgetsController < ApplicationController
 	def update
 		@budget = current_user.budget
 	    if @budget.update_attributes(budget_params)
+  		  @budget.remaining = @budget.income - @budget.used
+  		  @budget.update_attributes(budget_params)
 	      flash[:success] = "Budget updated"
 	      redirect_to current_user
+
 	    else
       	render 'edit'
     	end
@@ -32,6 +37,6 @@ class BudgetsController < ApplicationController
 	private
 
 	def budget_params
-		params.require(:budget).permit(:income)
+		params.require(:budget).permit(:income, :remaining, :used)
 	end
 end

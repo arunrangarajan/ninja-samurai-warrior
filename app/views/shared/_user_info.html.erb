@@ -1,4 +1,15 @@
-<h1><%= current_user.name %></h1>
+<h1 id= "left"><%= current_user.name %></h1> 
 <p><%= link_to "View Graphically!", current_user %></p>
 <p><%= pluralize(current_user.expenses.count, "Expense")%> Posted</p>
-<p><%= current_user.budget.income %></p>
+<table>
+	<tr>
+		<th> Income </th>
+		<th> Remaining </th>
+		<th> Used </th>
+	</tr>
+	<tr>
+		<td>$<%= number_with_precision current_user.budget.income, :precision => 2 %> </td>
+		<td>$<%= number_with_precision current_user.budget.remaining, :precision => 2 %></td>
+		<td>$<%= number_with_precision current_user.budget.used, :precision => 2 %></td>	 
+	</tr>
+</table>

@@ -1,8 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
-    if logged_in?
+    if logged_in? && user_good?
     	@expense = current_user.expenses.build
     	@feed_items = current_user.feed.paginate(page: params[:page])
+    elsif logged_in?
+      redirect_to new_budget_path
     end
   end
 
