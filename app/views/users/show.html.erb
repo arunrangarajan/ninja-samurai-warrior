@@ -1,6 +1,6 @@
 <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
 <% provide(:title, @user.name) %>
-<% if RAILS_ENV.eql?('development') %>
+<% if Rails.env.development? %>
 <div class="row">
 
   <!-- Line Chart - Single Series -->
