@@ -17,7 +17,7 @@
   <!-- Line Chart - Single Series -->
  <div class="col-m-6">
 	<h3>Expenses By Type</h3>
-		<%= line_chart Expense.find(@user.id).group_by_day(:created_at).count %>
+		<%= line_chart User.group_by_day(:created_at).count %>
   </div>
 </div>
 <% end %>
