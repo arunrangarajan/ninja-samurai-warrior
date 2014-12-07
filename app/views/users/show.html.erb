@@ -3,10 +3,20 @@
 <% if Rails.env.development? %>
 <div class="row">
 
-  <!-- Line Chart - Single Series -->
+  <!-- Column - Single Series -->
  <div class="col-m-6">
 	<h3>Expenses By Type</h3>
 		<%= column_chart @expenses.group(:category).sum(:value), {library: {hAxis: {title: "Category"}, vAxis: {title: "$ Spend"}}} %>
+  </div>
+</div>
+<% elsif Rails.env.production? %>
+
+<div class="row">
+
+  <!-- Line Chart - Single Series -->
+ <div class="col-m-6">
+	<h3>Expenses By Type</h3>
+		<%= line_chart @expenses.group_by_day(:created_at).count %>
   </div>
 </div>
 <% end %>
