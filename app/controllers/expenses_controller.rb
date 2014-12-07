@@ -4,6 +4,7 @@ class ExpensesController < ApplicationController
 
 	def create
 		@expense = current_user.expenses.build(expense_params)
+		@expense.category.downcase!
 		@budget = current_user.budget
 		if @expense.save
 			flash[:success] = "Expense added!"

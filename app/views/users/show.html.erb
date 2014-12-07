@@ -1,5 +1,6 @@
 <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
 <% provide(:title, @user.name) %>
+<% if RAILS_ENV.eql?('development') %>
 <div class="row">
 
   <!-- Line Chart - Single Series -->
@@ -8,3 +9,4 @@
 		<%= column_chart @expenses.group(:category).sum(:value), {library: {hAxis: {title: "Category"}, vAxis: {title: "$ Spend"}}} %>
   </div>
 </div>
+<% end %>
