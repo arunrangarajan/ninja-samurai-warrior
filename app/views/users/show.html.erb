@@ -10,14 +10,4 @@
   </div>
 </div>
 <% elsif Rails.env.production? %>
- 	<%= javascript_include_tag "//www.google.com/jsapi" %>
-	<%= javascript_include_tag "application", "chartkick" %>
-<div class="row">
-
-  <!-- Line Chart - Single Series -->
- <div class="col-m-6">
-	<h3>Expenses By Type</h3>
-		<%= line_chart User.group_by_day(:created_at).count %>
-  </div>
-</div>
 <% end %>
