@@ -6,7 +6,7 @@ class BudgetTest < ActiveSupport::TestCase
   # end
   def setup
   	@user = users(:arun)
-  	@budget = @user.build_budget(income: 12345.12)
+  	@budget = @user.build_budget(income: 12345.12, remaining: 12345.12, used: 0)
   end
 
   test "should be valid" do
