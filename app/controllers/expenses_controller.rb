@@ -4,9 +4,12 @@ class ExpensesController < ApplicationController
 
 	def create
 		@expense = current_user.expenses.build(expense_params)
+		@budget = current_user.budget
 		if @expense.save
 			flash[:success] = "Expense added!"
 			redirect_to root_url
+			@budget.income = @budget.income - @expense.value
+			@budget.save 
 		else
 			@feed_items = []
 			render 'static_pages/home'

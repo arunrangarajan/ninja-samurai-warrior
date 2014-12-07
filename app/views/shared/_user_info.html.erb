@@ -1,3 +1,4 @@
 <h1><%= current_user.name %></h1>
 <p><%= link_to "View Graphically!", current_user %></p>
 <p><%= pluralize(current_user.expenses.count, "Expense")%> Posted</p>
+<p><%= current_user.budget.income %></p>

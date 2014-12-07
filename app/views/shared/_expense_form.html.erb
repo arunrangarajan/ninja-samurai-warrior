@@ -7,7 +7,7 @@
     <%= f.text_field :category, placeholder: "Categorize it" %>
   </div>
   <div class="field">
-    <%= f.number_field :value, in: 0.0..999999.99, step: 0.01, placeholder: "How much was it?" %>
+    <%= f.number_field :value, in: 0.0..999999.99, step: 0.01, placeholder: "How much did it cost?" %>
   </div>
   <%= f.submit "Enter", class: "btn btn-primary" %>
 <% end %>
