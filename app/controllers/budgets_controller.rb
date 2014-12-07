@@ -11,7 +11,7 @@ class BudgetsController < ApplicationController
 		@budget.used = 0
 		if @budget.save
 			flash[:success] = "Your budget has been set!"
-			redirect_to current_user
+			redirect_to root_path
 		else
 			render 'static_pages/home'
 		end
